@@ -17,6 +17,11 @@ cd
 mkdir -p catkin_ws/src
 cd catkin_ws/src
 git clone https://github.com/phamngtuananh
+```
+
+Before continuing, go to dependencies/pl-slam/src/slamConfig.cpp, line 70-71, and adjust the paths to your installation path.
+
+```
 chmod +x build_dependencies.sh
 ./build_dependencies.sh
 cd ..
