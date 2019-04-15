@@ -1,0 +1,3 @@
+<launch>
+    <node pkg="pl_slam_ros" type="plslam" name="plslam" />
+</launch>

@@ -1,7 +1,14 @@
 # PL-SLAM ROS Wrapper (modified)
 - Some bad compilation and run time bugs are adjusted
 - Merge all necessary libraries (StVO-PL and PL-SLAM)
-- Added ROS publish and visualization 
+- Added ROS publish and visualization
+
+## Requirements
+Recommended:
+- ROS Kinetic
+- Eigen 3.3.4
+- G2O branch `20160424_git`
+- OpenCV 3.3.1 (installed as `ros-kinetic-opencv3`)
 
 ## How to build
 ```

@@ -68,3 +68,7 @@ target_link_libraries(plslam
   ${PROJECT_SOURCE_DIR}/dependencies/pl-slam/3rdparty/DBoW2/lib/libDBoW2.so
   ${PROJECT_SOURCE_DIR}/dependencies/pl-slam/lib/libplslam.so
 )
+
+install(DIRECTORY launch
+        DESTINATION ${CATKIN_PACKAGE_SHARE_DESTINATION}
+)
