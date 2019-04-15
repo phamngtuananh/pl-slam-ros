@@ -1,3 +1,27 @@
+# PL-SLAM ROS Wrapper (modified)
+- Some bad compilation and run time bugs are adjusted
+- Merge all necessary libraries (StVO-PL and PL-SLAM)
+- Added ROS publish and visualization 
+
+## How to build
+```
+# Clone and build
+cd
+mkdir -p catkin_ws/src
+cd catkin_ws/src
+git clone https://github.com/phamngtuananh
+chmod +x build_dependencies.sh
+./build_dependencies.sh
+cd ..
+catkin_make
+
+# Run
+source devel/setup.bash
+rosrun pl_slam_ros plslam
+```
+
+Below is the README from the original author
+
 # PL-SLAM ROS Wrapper #
 
 This code contains a simple ROS wrapper for it's use along with our stereo visual SLAM by using both point and line segment features project:
@@ -22,50 +46,3 @@ We also provide a modified version of the following repository:
 to stream the PerceptIn stereo sensor. The repository can be found in:
 
 [https://github.com/rubengooj/PerceptIn_ROS](https://github.com/rubengooj/PerceptIn_ROS)  
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
