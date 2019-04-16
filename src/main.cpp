@@ -16,8 +16,8 @@ int main(int argc, char **argv)
     std::string package_path = ros::package::getPath("pl_slam_ros");
     if (argc == 1 && !package_path.empty())
     {
-        params_file = package_path + "dependencies/pl-slam/config/dataset_params/zed_params_raw.yaml";
-        config_file = package_path + "dependencies/pl-slam/config/config/config_euroc.yaml";
+        params_file = package_path + "/dependencies/pl-slam/config/dataset_params/zed_params_raw.yaml";
+        config_file = package_path + "/dependencies/pl-slam/config/config/config_euroc.yaml";
     }
     else
     {
@@ -27,6 +27,7 @@ int main(int argc, char **argv)
             config_file = argv[2];
     }
 
+    std::cout << "Using config: " << params_file << std::endl;
     PLSLAM::Node plslam(params_file, config_file);
     ros::spin();
     return 0;

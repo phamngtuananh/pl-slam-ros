@@ -24,7 +24,7 @@ class Publisher
           last_optical_pose_(Eigen::Matrix4d::Identity()), is_updated_(false)
     {
         traj_pub_ = nh_.advertise<nav_msgs::Path>("trajectory", 1, true);
-        pose_pub_ = nh_.advertise<nav_msgs::Odometry>("slam/pose", 1, true);
+        pose_pub_ = nh_.advertise<nav_msgs::Odometry>("slam/odom", 1, true);
         traj_msg_ptr_->header.frame_id = map_frame_id_;
         offset_ << 0, -1, 0, 0, 0, 0, -1, 0, 1, 0, 0, 0, 0, 0, 0, 1;
         offset_inv_ = offset_.inverse();
@@ -39,7 +39,7 @@ class Publisher
 
     void run()
     {
-        while (true)
+        while (ros::ok())
         {
             if (is_updated_)
             {
@@ -125,12 +125,12 @@ class Publisher
         out->pose.pose.orientation.y = q.y();
         out->pose.pose.orientation.z = q.z();
         out->pose.pose.orientation.w = q.w();
-        out->pose.covariance[0] = 1;
-        out->pose.covariance[7] = 1;
-        out->pose.covariance[14] = 1;
-        out->pose.covariance[21] = 1;
-        out->pose.covariance[28] = 1;
-        out->pose.covariance[35] = 1;
+        out->pose.covariance[0] = 0.01;
+        out->pose.covariance[7] = 0.01;
+        out->pose.covariance[14] = 0.01;
+        out->pose.covariance[21] = 0.1;
+        out->pose.covariance[28] = 0.1;
+        out->pose.covariance[35] = 0.1;
         pose_pub_.publish(out);
 
         br_.sendTransform(

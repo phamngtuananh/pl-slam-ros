@@ -145,6 +145,7 @@ class Node
 
     ~Node()
     {
+        pbt->join();
         delete pbt;
         delete pb;
         delete map;
