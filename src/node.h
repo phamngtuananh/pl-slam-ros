@@ -178,7 +178,7 @@ class Node
     void imageCallback(const sensor_msgs::ImageConstPtr &msg_l, const sensor_msgs::ImageConstPtr &msg_r)
     {
         // start time benchmark
-        const auto time_start = high_resolution_clock::now();
+        // const auto time_start = high_resolution_clock::now();
         // grab images
         cv_bridge::CvImageConstPtr cv_ptr_l, cv_ptr_r;
         try
@@ -235,9 +235,9 @@ class Node
             frame_counter++;
         }
 
-        std::cout << "Loop finished. Took " 
-                  << duration_cast<chrono::milliseconds>(high_resolution_clock::now() - time_start).count() 
-                  << "ms" << std::endl;
+        // std::cout << "Loop finished. Took " 
+        //           << duration_cast<chrono::milliseconds>(high_resolution_clock::now() - time_start).count() 
+        //           << "ms" << std::endl;
     }
 
     void publishImu(const sensor_msgs::Imu::ConstPtr &imu, const ros::Time &stamp)
